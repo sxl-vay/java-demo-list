@@ -12,6 +12,7 @@ public class Sort {
     public static void main(String[] args) {
 
         CheckMethod.check(Sort.class,"quickSort");
+
     }
 
     /**

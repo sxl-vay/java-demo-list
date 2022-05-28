@@ -12,7 +12,7 @@ import java.util.Random;
  * @author shxl
  * @data 2022/5/27 22:55
  **/
-public class CheckMethod2 {
+public class CheckMethod3 {
 
 
     private static Method getMethod(Class sortClass,String method){
@@ -130,27 +130,6 @@ public class CheckMethod2 {
     }
 
 
-    private static Boolean sort(Class sortClass, String method, Integer count, Integer length,Integer randomMax)   {
-        Random random = new Random();
-
-        Method m = getMethod(sortClass, method);
-        for (Integer i = 0; i < count; i++) {
-            int[] a = new int[length];
-            for (int integer = 0; integer < length; integer++) {
-                a[integer] = random.nextInt(randomMax);
-            }
-            int[] ints = Arrays.copyOf(a, a.length);
-            Arrays.sort(a);
-            try {
-                m.invoke(sortClass, ints);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (SortErrorExption errorExption) {
-            }
-        }
-
-        return null;
-    }
 
 
 

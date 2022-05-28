@@ -6,31 +6,26 @@ import java.util.Arrays;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int a [] = {731, 2704, 8648, 2798, 8394, 5348, 6868};
+        int a[] = {95, 96, 24, 91, 15, 6};
         quickSort(a);
         Sort.print(a);
     }
 
     public static void quickSort(int[] a) {
-        quickSort(a,0,a.length-1);
+        quickSort(a, 0, a.length - 1);
     }
 
     private static void quickSort(int[] a, int low, int height) {
-        //递归的跳出判断
-        if (low >= height) {
-            return;
-        }
+
 
         int left = low;
         int right = height;
-        int base ;
-        try {
-            base = a[low];
-        } catch (Exception e) {
-            base = -1;
-            e.printStackTrace();
+        int base;
+        base = a[low];
+//递归的跳出判断
+        if (low >= height) {
+            return;
         }
-
 
         //当高位指针和低位指针没有相等时继续遍历数组
         while (low < height) {
@@ -43,7 +38,7 @@ public class QuickSort {
             a[low] = a[height];
 
             //从低索引开始寻找比base大的树
-            while (a[low] <= base && low<height) {
+            while (a[low] <= base && low < height) {
                 low++;
             }
             //将低位的大数据放到高位（height索引下的数据已经记录到了低索引处不会丢失）
@@ -53,8 +48,8 @@ public class QuickSort {
         a[low] = base;
 
         //根据low的位置将数组分割层为两个部分再次进行遍历操作。这里需要注意的是，使用low进行分割的时候left和right都不可以写死为0和length-1这样很有可能进入死循环
-        quickSort(a,left,low-1);
-        quickSort(a,low+1,right);
+        quickSort(a, left, low - 1);
+        quickSort(a, low + 1, right);
 
     }
 }

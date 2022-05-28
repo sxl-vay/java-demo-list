@@ -1,6 +1,7 @@
 package test;
 
 import base.exception.EmptyError;
+import base.exception.SortErrorExption;
 
 /**
  * @author shxl
@@ -9,11 +10,8 @@ import base.exception.EmptyError;
 public class ExptionTest {
     public static void main(String[] args) {
 
-        try {
-            int x = 1 / 0;
-        } catch (Exception e) {
-            throw new EmptyError();
-        }
 
     }
+
+
 }
