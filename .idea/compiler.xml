@@ -8,17 +8,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="design-pattern" />
-        <module name="Redis-Demo" />
-        <module name="TestMoudle" />
         <module name="Bloom" />
-        <module name="springboot-rabbitmq" />
-        <module name="JUC" />
+        <module name="Algorithm" />
         <module name="NIOandSocket" />
+        <module name="springboot-rabbitmq" />
         <module name="Crawler" />
+        <module name="TestMoudle" />
+        <module name="create-a-spring" />
+        <module name="Redis-Demo" />
+        <module name="JUC" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="NIO&amp;Socket" target="17" />
-    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot-rabbitmq" options="-parameters" />
+    </option>
   </component>
 </project>

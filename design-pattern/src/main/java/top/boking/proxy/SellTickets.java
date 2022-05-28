@@ -1,4 +1,4 @@
-package top.boking.proxy.jdk_proxy;
+package top.boking.proxy;
 
 /**
  * @Classname SellTickets

@@ -1,5 +1,7 @@
-package top.boking.proxy;
+package top.boking.proxy.cglib_proxy;
 
+
+import top.boking.proxy.SellTickets;
 
 /**
  * @Classname TrainStation
@@ -7,7 +9,7 @@ package top.boking.proxy;
  * @Date 2022/1/16 13:24
  * @Created by shxl
  */
-public class TrainStation implements top.boking.proxy.jdk_proxy.SellTickets{
+public class TrainStation implements SellTickets {
     public String sellTickets(String name){
         System.out.println(name+"!!");
         return "\t正在售卖去往\t"+name+"\t的火车票";

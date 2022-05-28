@@ -19,10 +19,10 @@ public class RedisStarter {
         config.setTestOnReturn(true);
 
         // 集群
-        JedisShardInfo jedisShardInfo1 = new JedisShardInfo("192.168.88.2", 6379);
+        JedisShardInfo jedisShardInfo1 = new JedisShardInfo("39.108.62.186", 6379);
 
         // 设置Redis的密码
-        jedisShardInfo1.setPassword("root");
+        jedisShardInfo1.setPassword("1234");
 
         List<JedisShardInfo> list = new LinkedList<JedisShardInfo>();
         list.add(jedisShardInfo1);

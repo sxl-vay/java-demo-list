@@ -14,8 +14,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -23,21 +23,19 @@
     <modules>
         <module>TestMoudle</module>
         <module>NIOandSocket</module>
-        <module>NIOandSocket</module>
         <module>Crawler</module>
         <module>Bloom</module>
         <module>design-pattern</module>
         <module>Redis-Demo</module>
         <module>springboot-rabbitmq</module>
         <module>JUC</module>
+        <module>create-a-spring</module>
+        <module>Algorithm</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-
-
-
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <druid.version>1.0.1</druid.version>
         <mysql.version>5.1.26</mysql.version>

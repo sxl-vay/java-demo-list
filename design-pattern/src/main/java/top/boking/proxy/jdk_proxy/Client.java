@@ -1,6 +1,8 @@
 package top.boking.proxy.jdk_proxy;
 
 
+import top.boking.proxy.SellTickets;
+
 /**
  * @Classname Client
  * @Description TODO
