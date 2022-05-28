@@ -17,15 +17,15 @@ public class QuickSort {
 
     private static void quickSort(int[] a, int low, int height) {
 
-
+        //递归的跳出判断
+        if (low >= height) {
+            return;
+        }
         int left = low;
         int right = height;
         int base;
         base = a[low];
-//递归的跳出判断
-        if (low >= height) {
-            return;
-        }
+
 
         //当高位指针和低位指针没有相等时继续遍历数组
         while (low < height) {
