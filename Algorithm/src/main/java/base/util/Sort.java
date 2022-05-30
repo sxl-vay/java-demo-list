@@ -9,11 +9,11 @@ import java.util.Arrays;
  * @data 2022/5/26 20:51
  **/
 public class Sort {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         CheckMethod.check(Sort.class,"quickSort");
 
-    }
+    }*/
 
     /**
      * 对外提供的归并排序接口
