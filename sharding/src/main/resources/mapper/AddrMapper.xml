@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.boking.sharding.mapper.AddrMapper">
+    <resultMap id="AddrMap" type="top.boking.sharding.entity.Addr">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="addr" jdbcType="VARCHAR" property="addr" />
+        <result column="tip" jdbcType="VARCHAR" property="tip" />
+
+    </resultMap>
+    <insert id="insert" parameterType="java.util.List">
+        insert into tab_addr (addr,tip) values
+
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.addr},#{item.tip})
+        </foreach>
+    </insert>
+    <delete id="remove" parameterType="string" >
+        delete from tab_addr where addr = #{string}
+    </delete>
+    <select id="getAll" resultType="top.boking.sharding.entity.Addr">
+        select * from tab_addr
+    </select>
+</mapper>

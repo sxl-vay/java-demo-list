@@ -1,7 +1,7 @@
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
+import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Iterator;
@@ -10,13 +10,13 @@ public class GroupChatServer {
 
     private Selector selector;
     private ServerSocketChannel listenChannel;
-    private static final int PORT = 80;
+    private static final int PORT = 9706;
 
     /**
      * 构造器
      * 初始化任务
      */
-    public GroupChatServer(){
+    public GroupChatServer(Integer port){
         try {
             // 得到选择器
             selector = Selector.open();
@@ -24,7 +24,7 @@ public class GroupChatServer {
             listenChannel = ServerSocketChannel.open();
             // 绑定端口
             ServerSocket socket = listenChannel.socket();
-            socket.bind(new InetSocketAddress(PORT));
+            socket.bind(new InetSocketAddress(port==null?PORT:port));
             // 设置非阻塞模式
             listenChannel.configureBlocking(false);
             // 将该listenChannel 注册到Selector
@@ -83,10 +83,12 @@ public class GroupChatServer {
         // 定义一个SocketChannel
         SocketChannel channel = null;
         String msg = null;
+        String hostString = null;
         try {
             // 得到channel
             channel = (SocketChannel) key.channel();
-            // 创建缓冲buffer
+            SocketAddress remoteAddress = channel.getRemoteAddress();
+            hostString = remoteAddress.toString();
             ByteBuffer buffer = ByteBuffer.allocate(1024);
             int count = channel.read(buffer);
             // 根据count的值做处理
@@ -100,7 +102,7 @@ public class GroupChatServer {
             try {
                 msg = "**系统通知：**" + channel.getRemoteAddress() + " is offline";
                 // 输出该消息
-                System.out.println(msg);
+                System.out.println(msg+"\r\n");
                 // 取消注册
                 key.cancel();
                 // 关闭通道
@@ -110,7 +112,7 @@ public class GroupChatServer {
             }
         } finally {
             try {
-                sendInfoToAllClients(msg);
+                sendInfoToAllClients(msg,hostString);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -121,16 +123,22 @@ public class GroupChatServer {
      *  广播消息给所有客户端(channel）
      * @param msg
      */
-    private void sendInfoToAllClients(String msg) throws IOException {
+    private void sendInfoToAllClients(String msg,String hostString) throws IOException {
         // 遍历, 所有注册到selector上的SocketChannel
         for (SelectionKey key : selector.keys()){
             // 通过key取出对应的SocketChannel
             Channel targetChannel = key.channel();
-            if (targetChannel instanceof SocketChannel && targetChannel.isOpen()){
+            if (targetChannel instanceof SocketChannel && targetChannel.isOpen()  ){
                 // 转型
                 SocketChannel dest = (SocketChannel) targetChannel;
-                // 将消息存储到buffer
-                ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes());
+                // 将消息存储到buf
+                SocketAddress remoteAddress = dest.getRemoteAddress();
+                String s = remoteAddress.toString();
+                if (s.equals(hostString)) {
+                    continue;
+                }
+                String s1 = s + ": \r\n" + msg;
+                ByteBuffer buffer = ByteBuffer.wrap(s1.getBytes());
                 // 将buffer数据写入到通道
                 dest.write(buffer);
             }
@@ -139,7 +147,15 @@ public class GroupChatServer {
 
     public static void main(String[] args) {
         // 创建服务器对象
-        GroupChatServer groupChatServer = new GroupChatServer();
+        String arg = null;
+        try {
+            arg = args[0];
+        } catch (Exception e) {
+            System.out.println(PORT +" start");
+            arg = "9706";
+        }
+
+        GroupChatServer groupChatServer = new GroupChatServer(Integer.parseInt(arg));
         groupChatServer.listen();
     }
 }

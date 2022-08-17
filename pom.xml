@@ -31,54 +31,67 @@
         <module>JUC</module>
         <module>create-a-spring</module>
         <module>Algorithm</module>
+        <module>nacos-client</module>
+        <module>regexp</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <druid.version>1.0.1</druid.version>
-        <mysql.version>5.1.26</mysql.version>
-        <spring.version>4.3.12.RELEASE</spring.version>
-        <mybatis.version>3.4.5</mybatis.version>
-        <mybatis-spring.version>1.3.0</mybatis-spring.version>
-        <pagehelper.version>4.1.6</pagehelper.version>
-        <gson.version>2.2.4</gson.version>
-        <guava.version>15.0</guava.version>
-        <dubbo.version>2.5.3</dubbo.version>
-        <zookeeper.version>3.4.8</zookeeper.version>
-        <zkclient.version>0.8</zkclient.version>
-        <commons-lang.version>2.6</commons-lang.version>
-        <shiro.version>1.2.3</shiro.version>
-        <freemarker.version>2.3.22</freemarker.version>
-        <commons-beanutils.version>1.9.2</commons-beanutils.version>
-        <junit.version>4.12</junit.version>
-        <mockito.version>1.10.19</mockito.version>
-        <commons-collections4.version>4.1</commons-collections4.version>
-        <httpclient.version>4.5.5</httpclient.version>
-        <fastjson.version>1.2.37</fastjson.version>
-        <jedis.version>2.9.0</jedis.version>
-        <redis.version>1.8.8.RELEASE</redis.version>
-        <jdk.version>1.8</jdk.version>
-        <commons-logging.version>1.1</commons-logging.version>
-        <log4j.version>1.2.17</log4j.version>
-        <javax.servlet.version>2.5</javax.servlet.version>
-        <activemq-core.version>5.7.0</activemq-core.version>
-        <activemq-pool.version>5.12.1</activemq-pool.version>
-        <spring.jms.version>5.0.6.RELEASE</spring.jms.version>
-        <aspectj.version>1.8.0</aspectj.version>
-        <jms.version>2.0.1</jms.version>
-        <cglig.version>3.2.4</cglig.version>
-        <!-- 设置默认编码 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <center.project.name>${project.artifactId}</center.project.name>
-        <profiles.dir>src/profiles</profiles.dir>
+       <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
 
     </properties>
 
 
 
+    <dependencies>
 
+
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+
+    </dependencies>
 
 
     <dependencyManagement>
@@ -86,13 +99,13 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
-                <version>2.2.4.RELEASE</version>
+                <version>${spring-boot.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>2.2.4.RELEASE</version>
+                <version>${spring-boot.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -108,7 +121,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>2.2.4.RELEASE</version>
+                <version>${spring-boot.version}</version>
             </dependency>
             <!--集成redis-->
             <dependency>

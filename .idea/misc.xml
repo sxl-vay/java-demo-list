@@ -9,6 +9,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/redisdesktop/pom.xml" />
+        <option value="$PROJECT_DIR$/sharding/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

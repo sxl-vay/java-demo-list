@@ -1,5 +1,6 @@
 package top.boking.circularreference;
 
+import base.util.Sort;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -35,9 +36,10 @@ public class AddTest2 {
 
 
     public static void main(String[] args) {
-        AddTest2 restfulDemo = new AddTest2();
+        int m[] = {23,456,67,854,34,3,68,5,4,4,7,97,987};
+        Sort.bubble(m);
+        Sort.print(m);
 
-        restfulDemo.doAction();
 
     }
 

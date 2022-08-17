@@ -14,18 +14,21 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyFactory {
 
-    private TrainStation trainStation = new TrainStation();
+    private TrainStation trainStation ;
+
+    public void setTrainStation(TrainStation trainStation) {
+        this.trainStation = trainStation;
+    }
 
     public SellTickets getProxys() {
         SellTickets sellTickets = (SellTickets) Proxy.newProxyInstance(
                 trainStation.getClass().getClassLoader(),
-                trainStation.getClass().getInterfaces(), new InvocationHandler() {
-                    @Override
-                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                        System.out.println("JDK Proxy");
-                        Object invoke = method.invoke(trainStation, args);
-                        return  invoke;
-                    }
+                trainStation.getClass().getInterfaces(), (proxy, method, args) -> {
+                    System.out.println("JDK Proxy");
+                    String s1 = trainStation.toString();
+                    System.out.println("s1 = " + s1);
+                    Object invoke = method.invoke(trainStation, args);
+                    return  invoke;
                 });
         return sellTickets;
     }

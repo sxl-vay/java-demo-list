@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.boking.mapper.IndexStudyMapper">
+
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="top.boking.entity.IndexStudy" id="indexStudy">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="a" column="a"/>
+        <result property="b" column="b"/>
+        <result property="c" column="c"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="indexStudy">
+        select * from index_study
+    </select>
+    <select id="queryByPage" resultMap="indexStudy">
+        select * from  index_study where name like #{name} limit #{start},#{pageSize}
+    </select>
+    <select id="queryByPageHelper" resultMap="indexStudy">
+        select * from  index_study
+    </select>
+
+    <insert id="insertStudys">
+        insert into index_study (name,a,b,c,char_1,age,create_time) values
+        <foreach collection="studies" item="study" separator=",">
+            (#{study.name},#{study.a},#{study.b},#{study.c},#{study.char1},#{study.age},#{study.createTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertStudy" parameterType="top.boking.entity.IndexStudy">
+        insert into index_study (name,a,b,c,age,create_time,char_1)
+        values(#{name},#{a},#{b},#{c},#{age},#{createTime},#{char1})
+
+
+        <foreach item="item" index="index" collection="list"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </insert>
+
+    <delete id="deleteCase" parameterType="top.boking.entity.IndexStudy">
+        delete from index_study where 1=1
+        <if test="name">
+            and name = #{name}
+        </if>
+        <if test="a">
+            and a = #{a}
+        </if>
+        <if test="b">
+            and b = #{b}
+        </if>
+        <if test="c">
+            and c = #{c}
+        </if>
+
+    </delete>
+
+</mapper>

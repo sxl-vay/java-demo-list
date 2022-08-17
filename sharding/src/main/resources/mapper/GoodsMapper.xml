@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.boking.sharding.mapper.GoodsMapper">
+    <resultMap id="GoodsMap" type="top.boking.sharding.entity.Goods">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="order_id" jdbcType="BIGINT" property="orderId" />
+        <result column="count"  property="count" />
+    </resultMap>
+
+    <select id="listAll" resultMap="GoodsMap" >
+        select * from tab_goods
+    </select>
+    <select id="listByCondition" parameterType="top.boking.sharding.entity.Goods" resultMap="GoodsMap" >
+
+        select * from tab_goods
+        where 1=1
+        <if test="name">
+            and name = #{name}
+        </if>
+        <if test="orderId">
+            and order_id = #{orderId}
+        </if>
+    </select>
+    <update id="reduceCountByCondition" parameterType="top.boking.sharding.entity.Goods" >
+        update tab_goods set count = count - #{count} where order_id = #{orderId}
+    </update>
+
+</mapper>

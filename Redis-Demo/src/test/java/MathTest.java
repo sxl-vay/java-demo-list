@@ -1,8 +1,12 @@
 public class MathTest {
     public static void main(String[] args) {
-        int x = 101;
-        int y = 3;
-        int i = x/y;
-        System.out.println("i = " + i);
+        String input = "1,2";
+
+        String[] split = input.split(",");
+        String s = split[0];
+        System.out.println("s = " + s);
+        String s1 = split[1];
+        System.out.println("s1 = " + s1);
+
     }
 }

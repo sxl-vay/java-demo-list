@@ -3,7 +3,6 @@ package top.boking.proxy.cglib_proxy;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
-import top.boking.proxy.cglib_proxy.TrainStation;
 
 import java.lang.reflect.Method;
 

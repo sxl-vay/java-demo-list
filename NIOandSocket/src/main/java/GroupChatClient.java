@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -12,18 +11,18 @@ import java.util.Scanner;
 public class GroupChatClient {
 
     // 定义相关属性
-    private final int PORT = 80;
+    private final int PORT = 9706;
     private Selector selector;
     private SocketChannel socketChannel;
-    private java.lang.String username;
+    private String username;
 
     /**
      *  构造器, 完成初始化工作
      */
-    public GroupChatClient() throws IOException {
+    public GroupChatClient(String ip) throws IOException {
         selector = Selector.open();
         // 连接服务器
-        socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", PORT));
+        socketChannel = SocketChannel.open(new InetSocketAddress(ip,PORT));
         // 设置非阻塞
         socketChannel.configureBlocking(false);
         // 将channel 注册到selector
@@ -38,7 +37,7 @@ public class GroupChatClient {
      * @param info
      */
     public void sendInfo(String info){
-        info = username + " said: " + info;
+//        info = username + " said: " + info;
         try {
             socketChannel.write(ByteBuffer.wrap(info.getBytes()));
         } catch (IOException e) {
@@ -79,7 +78,9 @@ public class GroupChatClient {
 
     public static void main(String[] args) throws IOException {
         // 启动客户端
-        final GroupChatClient chaClient = new GroupChatClient();
+        //  String ip = "192.168.1.11";
+                String ip = "localhost";
+        final GroupChatClient chaClient = new GroupChatClient(ip);
         // 启动一个线程
         new Thread(){
             @Override

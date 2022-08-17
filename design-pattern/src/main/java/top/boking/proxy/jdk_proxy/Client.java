@@ -12,8 +12,11 @@ import top.boking.proxy.SellTickets;
 public class Client {
     public static void main(String[] args) {
         ProxyFactory proxyFactory = new ProxyFactory();
+        proxyFactory.setTrainStation(new TrainStation());
         SellTickets proxys = proxyFactory.getProxys();
-        String ni = proxys.sellTickets("ni");
+        String ni = proxys.sellTickets("hello");
+        String s = proxys.toString();
+        System.out.println("s = " + s);
         System.out.println("ni = " + ni);
 
     }
