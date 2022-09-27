@@ -33,6 +33,7 @@
         <module>Algorithm</module>
         <module>nacos-client</module>
         <module>regexp</module>
+        <module>EnumDemo</module>
     </modules>
 
     <properties>

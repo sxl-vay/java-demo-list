@@ -7,21 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="nacos-client" />
-        <module name="design-pattern" />
-        <module name="create-a-spring" />
-        <module name="redisdesktop" />
-        <module name="springboot-rabbitmq" />
-        <module name="sharding" />
-        <module name="Redis-Demo" />
-        <module name="Bloom" />
         <module name="regexp" />
+        <module name="create-a-spring" />
+        <module name="EnumDemo" />
+        <module name="nacos-client" />
         <module name="Crawler" />
-        <module name="mybatis-demo" />
-        <module name="TestMoudle" />
-        <module name="NIOandSocket" />
-        <module name="JUC" />
         <module name="Algorithm" />
+        <module name="sharding" />
+        <module name="redisdesktop" />
+        <module name="design-pattern" />
+        <module name="Redis-Demo" />
+        <module name="TestMoudle" />
+        <module name="Bloom" />
+        <module name="springboot-rabbitmq" />
+        <module name="mybatis-demo" />
+        <module name="JUC" />
+        <module name="NIOandSocket" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

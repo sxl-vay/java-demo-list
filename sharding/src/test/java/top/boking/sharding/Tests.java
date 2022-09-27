@@ -1,15 +1,11 @@
 package top.boking.sharding;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import top.boking.sharding.mapper.AddrMapper;
-import top.boking.sharding.mapper.UserMapper;
 
-import java.util.Random;
-import java.util.concurrent.CompletableFuture;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author shxl
@@ -18,14 +14,24 @@ import java.util.concurrent.CompletableFuture;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes =ShardingApplication.class)
 public class Tests {
-    @Autowired
-    private UserMapper userMapper;
-    @Autowired
-    private AddrMapper addrMapper;
-    @Test
-    public void run() {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        HashMap<Integer,Integer> a = new HashMap<>();
+        HashMap<Integer,Integer> b = new HashMap<>();
+        for (int i : target) {
+            a.put(i,a.getOrDefault(i,0)+1);
+        }
+        for (int i : arr) {
+            b.put(i,b.getOrDefault(i,0)+1);
+        }
+        if (a.size()!=b.size()) return false;
+        for (Map.Entry<Integer, Integer> entry : a.entrySet()) {
+            Integer key = entry.getKey();
+            Integer integer = a.get(key);
+            Integer orDefault = b.getOrDefault(key, 0);
+            if (integer != orDefault) return false;
 
 
-
+        }
+        return true;
     }
 }
