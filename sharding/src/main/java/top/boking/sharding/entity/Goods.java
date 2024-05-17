@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
  **/
 @Data
 @AllArgsConstructor
-
 public class Goods {
     private Long orderId;
     private String name;
