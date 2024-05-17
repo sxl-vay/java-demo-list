@@ -16,7 +16,6 @@
         <module name="Crawler" />
         <module name="Algorithm" />
         <module name="sharding" />
-        <module name="redisdesktop" />
         <module name="design-pattern" />
         <module name="Redis-Demo" />
         <module name="TestMoudle" />
@@ -27,6 +26,9 @@
         <module name="NIOandSocket" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="redisdesktop" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
