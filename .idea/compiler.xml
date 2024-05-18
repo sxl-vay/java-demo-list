@@ -10,6 +10,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="regexp" />
+        <module name="spring-and-boo-study" />
         <module name="create-a-spring" />
         <module name="EnumDemo" />
         <module name="nacos-client" />
@@ -26,14 +27,10 @@
         <module name="NIOandSocket" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="redisdesktop" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mybatis-demo" options="-parameters" />
-      <module name="redisdesktop" options="" />
       <module name="sharding" options="-parameters" />
       <module name="springboot-rabbitmq" options="-parameters" />
     </option>
