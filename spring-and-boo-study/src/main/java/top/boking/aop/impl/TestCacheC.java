@@ -11,16 +11,16 @@ import javax.annotation.Resource;
  * @Version 1.0
  */
 @Service
-public class TestCache {
+public class TestCacheC {
     @Resource
-    private TestCacheC testCacheC;
+    private TestCacheD testCacheD;
     @Cacheable(keyName = "test", expireTime = 10000)
     public String test() {
-        System.out.println("test in "+testCacheC.getClass());
+        System.out.println("test in ");
         return "test";
     }
 
-    public TestCache() {
-        System.out.println("TestCache");
+    public TestCacheC() {
+        System.out.println("TestCacheC"+testCacheD);
     }
 }
