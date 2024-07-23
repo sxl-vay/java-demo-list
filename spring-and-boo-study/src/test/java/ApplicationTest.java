@@ -20,7 +20,6 @@ public class ApplicationTest {
 
     @Test
     public void t1() {
-        String test = testCache.test();
 
     }
 }

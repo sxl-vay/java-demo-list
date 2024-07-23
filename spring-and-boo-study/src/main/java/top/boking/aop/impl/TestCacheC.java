@@ -1,5 +1,11 @@
 package top.boking.aop.impl;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.PropertyValues;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import top.boking.aop.Cacheable;
 
@@ -12,15 +18,19 @@ import javax.annotation.Resource;
  */
 @Service
 public class TestCacheC {
-    @Resource
-    private TestCacheD testCacheD;
     @Cacheable(keyName = "test", expireTime = 10000)
     public String test() {
         System.out.println("test in ");
         return "test";
     }
 
+    @Value("${shxl.test}")
+    private String shxl;
+
+
+
     public TestCacheC() {
-        System.out.println("TestCacheC"+testCacheD);
     }
+
+
 }

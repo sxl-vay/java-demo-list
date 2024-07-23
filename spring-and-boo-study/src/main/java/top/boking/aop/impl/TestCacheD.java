@@ -1,8 +1,11 @@
 package top.boking.aop.impl;
 
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import top.boking.aop.Cacheable;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
@@ -11,16 +14,21 @@ import javax.annotation.Resource;
  * @Version 1.0
  */
 @Service
+@Data
 public class TestCacheD {
+
+    @Value("${shxl.test}")
+    private String shxl;
+
     @Resource
-    private TestCache testCache;
-    @Cacheable(keyName = "test", expireTime = 10000)
-    public String test() {
-        System.out.println("test in "+testCache.getClass());
-        return "test";
-    }
+    private NormalBean normalBean;
 
     public TestCacheD() {
         System.out.println("TestCache");
+    }
+
+    @PostConstruct
+    public void post() {
+        System.out.println(normalBean);
     }
 }
