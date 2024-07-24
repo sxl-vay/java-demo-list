@@ -1,8 +1,2 @@
-server:
-  tomcat:
-    threads:
-      max: 3
-
-#以下是测试用的自定义属性
 shxl:
   test: shxl-test
