@@ -16,6 +16,7 @@
         <module name="EnumDemo" />
         <module name="nacos-client" />
         <module name="Crawler" />
+        <module name="websocket-demo" />
         <module name="Algorithm" />
         <module name="sharding" />
         <module name="design-pattern" />

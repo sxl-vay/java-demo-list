@@ -24,6 +24,7 @@
         <module>EnumDemo</module>
         <module>spring-and-boo-study</module>
         <module>JVM</module>
+        <module>websocket-demo</module>
     </modules>
 
     <properties>
@@ -64,6 +65,11 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-websocket</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
             <!--集成redis-->

@@ -1,2 +1,5 @@
 shxl:
   test: shxl-test
+
+server:
+  port: 8080
