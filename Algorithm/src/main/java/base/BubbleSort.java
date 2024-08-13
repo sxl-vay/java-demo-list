@@ -19,6 +19,8 @@ public class BubbleSort {
                     f=0;
                 }
             }
+
+            System.out.println("shxl");
             if (f == 1) {
                 break;
             }

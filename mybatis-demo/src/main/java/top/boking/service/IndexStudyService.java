@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import top.boking.entity.IndexStudy;
 import top.boking.mapper.IndexStudyMapper;
 
@@ -20,6 +21,7 @@ public class IndexStudyService {
     @Autowired
     IndexStudyMapper mapper;
     //service
+
     public Map<String,Object> queryByPageHelper(int page, int pageSize){
         PageHelper.startPage(page, pageSize);
         List<IndexStudy> indexStudies = mapper.selectAll();

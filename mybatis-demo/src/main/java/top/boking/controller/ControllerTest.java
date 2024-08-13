@@ -3,6 +3,7 @@ package top.boking.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import top.boking.entity.IndexStudy;
 import top.boking.service.IndexStudyService;
 
 import java.util.*;
+import java.util.concurrent.Semaphore;
 
 /**
  * @author shxl
@@ -27,16 +29,18 @@ public class ControllerTest {
     @GetMapping("/get")
     public List get() {
         List<IndexStudy> indexStudies = mapper.selectAll();
-
         return indexStudies;
 
     }
 
 
     @GetMapping("/getPagehelper/{page}/{pageSize}")
+    @Transactional
     public Map<String, Object> getPagehelper(@PathVariable("page") Integer page,@PathVariable("pageSize") Integer pageSize) {
 
         Map<String, Object> info = service.queryByPageHelper(page, pageSize);
+        info = service.queryByPageHelper(page, pageSize);
+        service.queryByPageHelper(page, pageSize);
 
         return info;
 
@@ -46,7 +50,6 @@ public class ControllerTest {
     public List getPage(@PathVariable("pageindex") Integer pageindex) {
 
         List indexStudies = mapper.queryByPage((pageindex-1)*10,10,"zsr%");
-
         return indexStudies;
 
     }

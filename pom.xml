@@ -23,6 +23,7 @@
         <module>regexp</module>
         <module>EnumDemo</module>
         <module>spring-and-boo-study</module>
+        <module>JVM</module>
     </modules>
 
     <properties>
