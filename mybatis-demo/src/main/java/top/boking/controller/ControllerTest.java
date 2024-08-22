@@ -1,5 +1,6 @@
 package top.boking.controller;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import top.boking.mapper.IndexStudyMapper;
 import top.boking.entity.IndexStudy;
 import top.boking.service.IndexStudyService;
 
+import javax.sql.DataSource;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 
@@ -26,9 +28,15 @@ public class ControllerTest {
     @Autowired
     private IndexStudyService service;
 
+    @Autowired
+    private DataSource dataSource;
+
     @GetMapping("/get")
     public List get() {
         List<IndexStudy> indexStudies = mapper.selectAll();
+        DruidDataSource druidDataSource = (DruidDataSource) dataSource;
+        String validationQuery = druidDataSource.getValidationQuery();
+        System.out.println("validationQuery = " + validationQuery);
         return indexStudies;
 
     }

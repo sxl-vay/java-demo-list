@@ -27,6 +27,7 @@
         <module name="mybatis-demo" />
         <module name="JUC" />
         <module name="NIOandSocket" />
+        <module name="springboot-rocketmq" />
       </profile>
     </annotationProcessing>
   </component>
@@ -35,6 +36,7 @@
       <module name="mybatis-demo" options="-parameters" />
       <module name="sharding" options="-parameters" />
       <module name="springboot-rabbitmq" options="-parameters" />
+      <module name="springboot-rocketmq" options="" />
     </option>
   </component>
 </project>
